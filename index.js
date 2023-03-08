@@ -5,9 +5,12 @@ const path = require('path');
 async function createFile (){
   try{
     const filePath = core.getInput('path');
-    const file = core.getInput('file')
-    const content = core.getInput('content')
+    const file = core.getInput('name')
+    const params = core.getInput('params')
     const absolutePath = path.join(process.cwd(),filePath)
+    console.log(`absolutePath: ${absolutePath}`)
+    console.log(`file: ${file}`)
+    console.log(`params: ${params}`)
     try{
       await fs.access(absolutePath)
     }catch(error){
@@ -18,7 +21,7 @@ async function createFile (){
     }catch(error){
       core.setFailed("couldn't create directory structure");
     }
-    await fs.writeFile(path.join(absolutePath,file), content)
+    await fs.writeFile(path.join(absolutePath,file), params)
   }catch (error) {
     core.setFailed(error.message);
   }
