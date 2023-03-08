@@ -15,6 +15,7 @@ inputs:
     description: 'The key-values pairs of the file'
     required: true
     default: ''
+    is-array: true
 runs:
   using: 'node12'
   main: 'index.js'
