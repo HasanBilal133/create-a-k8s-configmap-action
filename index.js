@@ -11,7 +11,8 @@ async function createFile (){
     const absolutePath = path.join(process.cwd(),filePath)
     let obj = yaml.load(params);
 
-    let configMapdata = yaml.load({
+    // let configMapdata = yaml.load();
+    let yamlStr = yaml.dump({
       apiVersion: 'v1',
       kind: 'ConfigMap',
       metadata: {
@@ -19,7 +20,6 @@ async function createFile (){
       },
       data: obj
     });
-    let yamlStr = yaml.dump(configMapdata);
     console.log(yamlStr);
     console.log(typeof yamlStr);
     try{
