@@ -19,7 +19,7 @@ async function createFile (){
       },
       data: obj
     });
-    let yamlStr = yaml.safeDump(configMapdata);
+    let yamlStr = yaml.dump(configMapdata);
     try{
       await fs.access(absolutePath)
     }catch(error){
