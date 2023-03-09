@@ -11,7 +11,7 @@ async function createFile (){
     const absolutePath = path.join(process.cwd(),filePath)
     let obj = yaml.load(params);
 
-    let configMapValues = yaml.load({
+    let configMapdata = yaml.load({
       apiVersion: 'v1',
       kind: 'ConfigMap',
       metadata: {
@@ -19,6 +19,7 @@ async function createFile (){
       },
       data: obj
     });
+    let yamlStr = yaml.safeDump(configMapdata);
     try{
       await fs.access(absolutePath)
     }catch(error){
@@ -29,7 +30,7 @@ async function createFile (){
     }catch(error){
       core.setFailed("couldn't create directory structure");
     }
-    await fs.writeFile(path.join(absolutePath,file), configMapValues)
+    await fs.writeFile(path.join(absolutePath,file), yamlStr)
   }catch (error) {
     core.setFailed(error.message);
   }
