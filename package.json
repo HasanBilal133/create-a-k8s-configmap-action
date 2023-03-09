@@ -6,6 +6,7 @@
   "author": "1arp <dekhijaegi@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "@actions/core": "^1.2.5"
+    "@actions/core": "^1.2.5",
+    "js-yaml": "^4.1.0"
   }
 }

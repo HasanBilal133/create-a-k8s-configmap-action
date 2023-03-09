@@ -1,6 +1,7 @@
 const core = require('@actions/core');
 const fs = require('fs').promises;
 const path = require('path');
+const yaml = require('js-yaml');
 
 async function createFile (){
   try{
@@ -11,6 +12,9 @@ async function createFile (){
     console.log(`absolutePath: ${absolutePath}`)
     console.log(`file: ${file}`)
     console.log(`params: ${params}`)
+    let obj = yaml.load(params)
+    console.log(obj)
+    console.log(typeof obj)
     try{
       await fs.access(absolutePath)
     }catch(error){
