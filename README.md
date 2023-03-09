@@ -6,18 +6,18 @@ with:
     path: value
 ```
 Path where you want to create the file relative to the cwd (default: root of your repository)
-## file
+## name
 ```yaml
 with:
-    file: value
+    name: value
 ```
-Name of the file with extention
-## content
+Name of the file without the extention
+## params
 ```yaml
 with:
-    content: value
+    params: value
 ```
-Content of the file (default: empty)
+Content of the params (default: empty)
 
 ## Example Usage
 
@@ -37,11 +37,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: 1arp/create-a-file-action@0.2
+      - uses: LabNodeELN/configmap-action@master
         with:
           path: 'src'
-          file: 'foo.bar'
-          content: |
-            Hello
-            World
+          name: 'foo'
+          params: |
+            PARAM1: VALUE1
+            PARAM2: VALUE2
 ````
