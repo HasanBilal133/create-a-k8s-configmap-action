@@ -20,6 +20,8 @@ async function createFile (){
       data: obj
     });
     let yamlStr = yaml.dump(configMapdata);
+    console.log(yamlStr);
+    console.log(typeof yamlStr);
     try{
       await fs.access(absolutePath)
     }catch(error){
@@ -30,7 +32,7 @@ async function createFile (){
     }catch(error){
       core.setFailed("couldn't create directory structure");
     }
-    await fs.writeFile(path.join(absolutePath,file), yamlStr)
+    await fs.writeFile(path.join(absolutePath,file), yamlStr, 'utf8')
   }catch (error) {
     core.setFailed(error.message);
   }
