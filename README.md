@@ -37,7 +37,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: LabNodeELN/configmap-action@master
+      - uses: HasanBilal133/ create-a-k8s-configmap-action@master
         with:
           path: 'src'
           name: 'foo'
