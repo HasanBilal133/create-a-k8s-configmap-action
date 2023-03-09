@@ -32,7 +32,7 @@ async function createFile (){
     }catch(error){
       core.setFailed("couldn't create directory structure");
     }
-    await fs.writeFile(path.join(absolutePath,file), yamlStr, 'utf8')
+    await fs.writeFile(absolutePath,file, yamlStr, 'utf8')
   }catch (error) {
     core.setFailed(error.message);
   }
