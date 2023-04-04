@@ -39,7 +39,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: HasanBilal133/ create-a-k8s-configmap-action@master
         with:
-          path: 'src'
+          path: 'src/file.yaml'
           name: 'foo'
           params: |
             PARAM1: VALUE1
